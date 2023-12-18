@@ -1,5 +1,6 @@
-server:
-  port: 8081
+#port will be taken from docker external port
+#server:
+#  port: 8081
 
 spring:
   application:
@@ -11,7 +12,7 @@ spring:
 #    password: wiley
 
   datasource:
-    url: jdbc:mySql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/studentcrud
+    url: jdbc:mySql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/studentcrud?createDatabaseIfNotExist=true
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:wiley}
 
@@ -19,4 +20,23 @@ spring:
     hibernate:
       ddl-auto: update
 
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
 #      vm options -> -DMYSQL_USER=root -DMYSQL_PASSWORD=wiley -DMYSQL_PORT=3306
+
+
+#terminal commands -
+#
+# inside our spring boot project (where docker file is presnt
+#docker images
+#
+#  docker build -t springboot-student-docker .
+
+
+
+
+
+
+
+
