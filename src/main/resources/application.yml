@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: STUDENT-DOCKER
+
+#  datasource:
+#    url: jdbc:mySql://localhost:3306/studentcrud
+#    username: root
+#    password: wiley
+
+  datasource:
+    url: jdbc:mySql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/studentcrud
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:wiley}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#      vm options -> -DMYSQL_USER=root -DMYSQL_PASSWORD=wiley -DMYSQL_PORT=3306
